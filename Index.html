@@ -1,0 +1,78 @@
+<!Doctype HTML>
+<HTML>
+<head>
+	<meta charset="utf-8">
+	<title>Fishing</title>
+	<link rel="stylesheet" href="fishing.css"><!--Подключаем CSS файл-->
+</head>
+<body style="background:url(img/gameFon.png); background-size: 100%" id="screen">
+
+	<!--Кошелёк-->
+	<div id="wallet">
+		<p id="moneyID" class="money">Кошелёк: 0 монет</p>
+	</div>
+	
+	<!--Поплавок-->
+	<div id="floatID" style="position: absolute;"></div>
+
+	<!--Всплывающая подсказка сверху-->
+	<div id="out" hidden></div>
+
+	<div id="FRBaitID"></div>
+
+	<!--Рюкзак-->
+	<div id="fishPack">
+		<button id="packMiniBtn" class="GUI-btn" onclick="packMini(this)" value="" title="Свернуть">⛶</button>
+		<div id="FPCells"></div>
+		<div id="FPButtons">
+			<button id="packPlusID" title="Увеличить рюкзак" class="GUI-btn" onclick="packPlus()">⇮ 100</button>
+			<button id="soldAllID" class="GUI-btn" onclick="soldAll()">Продать всё</button>
+		</div>
+	</div>  
+	
+	<!--Заказы-->
+	<div id="ordersID2">
+		<div id="orderHeadID"></div>
+		<div id="orderButtonsID">
+			<button id="orderUpID" onclick="orderUp()" class="GUI-btn">Заказы +1 за 150</button>
+		</div>
+		<div id="orderBodyID"></div>
+	</div> 
+	
+	<!--Удочка-->
+		<div id="fishingRodStyle">
+			<div id="fishingRodPropertyID" class="GUI-btn" style="visibility: hidden"></div>
+				<div id="luckID" style="width: 105px; margin-left: 12px; margin-bottom: -33px">Удача 0 за 0</div>
+				<input type="range" min="0" max="10" step="1" value="0" oninput="luck(this)" style="width: 100px; height: 15px; margin-right: 210px;" id="luckInputID">
+				<div style="font-size: 16px; width:130px; height: 35px">
+					<progress id="durabilityProgress" style="height: 45px; width: 100px; text-align: left" max="100" value="100"></progress>
+					<p id="durabilityID" style="margin-top: -35px; margin-bottom: 5px;" title="Ускорить ловлю">🎣 10</p>
+				</div>
+			<div id="fishingRodHintID" class="GUI-btn">?</div>
+
+			<!--Кнопка забросить/Смотать-->
+			<button onclick="fishingRod()" id="fishingRodID" class="GUI-btn"><img id="fishingRodID2" alt="Удочка">Удочка</button>
+
+			<div style="display:inline-block">
+				<button onclick="fixed()" id="fishingRodFixedID" class="GUI-btn" title="Починить">🛠 0</button>
+				<button onclick="levelUp()" id="fishingRodLevelUpID" class="GUI-btn" title="Улучшить">⇮ 1500</button>
+				<button onclick="bait(true)" id="baitID" class="GUI-btn">🎣 х2 за 10</button>
+				<input type="checkbox" oninput="bait()" id="avtoBaitID">Авто
+			</div>
+		</div>
+		<button class="GUI-btn" onclick="save()">Сохранить</button>
+		<button class="GUI-btn" onclick="load()">Загрузить</button>
+		<div id="expMotherID">
+			<div id="expBarID"></div>
+			<div id="expID">Уровень 0 - Опыт 0/1</div>
+			<!--<button onclick="gainedExperience(1)">Опыт</button><button onclick="gainedExperience(2)">x2</button><button onclick="gainedExperience(5)">x5</button><button onclick="gainedExperience(10)">x10</button><button onclick="gainedExperience(50)">x50</button><button onclick="gainedExperience(100)">x100</button>-->
+		</div>
+		<div id="reputationID" class="money">0</div>
+		<div id="Pop-UpWindow">
+			<div id="HeadPop-Up"></div>
+			<div id="BodyPop-Up"></div>
+			<div id="FootPop-Up"><button class="GUI-btn" onclick="closePopUp()">Закрыть</button></div>
+		</div>
+	<script src="fishing.js"></script><!--Подключаем JS файл-->
+</body>
+</html>
